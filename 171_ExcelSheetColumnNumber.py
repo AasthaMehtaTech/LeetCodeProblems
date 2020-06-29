@@ -20,11 +20,21 @@ class Solution:
             start += step
         """
         
-#fast
+#fast & light
 class Solution:
     def titleToNumber(self, s: str) -> int:
         res = 0
         for char in s:
             res *= 26
             res += (ord(char)-ord('A'))+1
+        return res
+    
+    
+#another light
+class Solution:
+    def titleToNumber(self, s: str) -> int:
+        res = 0
+        nums = [ord(ch) - ord('A') + 1 for ch in s]
+        for n in nums:
+            res = res * 26 + n
         return res
