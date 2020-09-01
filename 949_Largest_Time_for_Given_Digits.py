@@ -97,17 +97,7 @@ class Solution:
                     max_mins = total_mins
                     largest_time = '{}{}:{}{}'.format(*p)
         return largest_time
-    
-#dfs
-class Solution:
-    def largestTimeFromDigits(self, A: List[int]) -> str:
-        times = []
-        def dfs(A = A, curr = []):
-            if len(A) == 0:
-                time = (10*curr[0]+curr[1], 10*curr[2]+curr[3])
-                if time[0] < 24 and time[1] < 60:
-                    times.append(time)
-                    
+
 #without permu library
 class Solution:
     def largestTimeFromDigits(self, A: List[int]) -> str:
@@ -127,7 +117,16 @@ class Solution:
             for i in range(len(rest)):
                 other = rest[:i] + rest[i+1:]
                 self.getPerm(start+rest[i], other, ways)
-        
+            
+#dfs
+class Solution:
+    def largestTimeFromDigits(self, A: List[int]) -> str:
+        times = []
+        def dfs(A = A, curr = []):
+            if len(A) == 0:
+                time = (10*curr[0]+curr[1], 10*curr[2]+curr[3])
+                if time[0] < 24 and time[1] < 60:
+                    times.append(time)                    
         
     def isValid(self, num):
         a, b = num[:2], num[2:]
